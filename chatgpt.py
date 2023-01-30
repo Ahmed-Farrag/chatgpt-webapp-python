@@ -17,7 +17,7 @@ def App():
     while True:
         def is_valid(ask):
             if ask == " " or ask == "":
-                return 'Age cannot be negative!'
+                return 'enter valide string!'
         ask = input("Ask Addy: 🤔اسئلني؟", type="text", validate=is_valid)
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -35,8 +35,11 @@ def App():
 
 app = Flask(__name__)
 
-app.add_url_rule('/', 'webio_view', webio_view(App),
-                 methods=['GET', 'POST', 'OPTIONS'])  # need GET,POST and OPTIONS methods
+# app.run()
 
 
-app.run()
+app.add_url_rule('/tool', 'webio_view', webio_view(App),
+                 methods=['GET', 'POST', 'OPTIONS'])
+
+if __name__ == '__main__':
+    start_server(App, port=8080)
