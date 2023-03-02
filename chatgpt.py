@@ -17,7 +17,7 @@ def App():
     put_html(
         "<center><p>مرحبا بك يمكنك الان كتابة ما يدور في  ذهنك </p></center>").style("color:gray;")
     put_html("<center><p>Created By <a href='https://www.ahmedfarrag.online'>Ahmed Farrag<a/></p></center>").style("color:black;")
-    openai.api_key = ""
+    openai.api_key = "PUT API HERE" #HEADLINE
     while True:
         def is_valid(ask):
             if ask == " " or ask == "":
